@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { API_ENDPOINTS } from '../config/api'
 import { fetchApi } from '../utils/api'
+import PrivacyPolicyModal from '../components/PrivacyPolicyModal'
 
 interface UserResponse {
   id: number;
@@ -17,9 +18,18 @@ const Home = () => {
     phone: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [privacyAgreed, setPrivacyAgreed] = useState(false)
+  const [activeForm, setActiveForm] = useState<'hero' | 'cta'>('hero')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    if (!privacyAgreed) {
+      alert('개인정보 수집 및 이용에 동의해주세요.')
+      return
+    }
+    
     setIsSubmitting(true)
 
     try {
@@ -30,6 +40,7 @@ const Home = () => {
 
       alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.')
       setFormData({ name: '', phone: '' })
+      setPrivacyAgreed(false)
     } catch (error) {
       alert(error instanceof Error ? error.message : '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
     } finally {
@@ -92,6 +103,32 @@ const Home = () => {
                 required
                 maxLength={13}
               />
+              <div className="flex items-center space-x-2 text-sm">
+                <input
+                  type="checkbox"
+                  id="privacy-hero"
+                  checked={privacyAgreed && activeForm === 'hero'}
+                  onChange={(e) => {
+                    setPrivacyAgreed(e.target.checked)
+                    setActiveForm('hero')
+                  }}
+                  className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                  required
+                />
+                <label htmlFor="privacy-hero" className="text-white">
+                  개인정보 수집 및 이용에 동의합니다.
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsModalOpen(true)
+                    setActiveForm('hero')
+                  }}
+                  className="text-white hover:text-gray-200 underline"
+                >
+                  [읽기]
+                </button>
+              </div>
               <button
                 type="submit"
                 className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
@@ -175,6 +212,32 @@ const Home = () => {
                 required
                 maxLength={13}
               />
+              <div className="flex items-center space-x-2 text-sm">
+                <input
+                  type="checkbox"
+                  id="privacy-cta"
+                  checked={privacyAgreed && activeForm === 'cta'}
+                  onChange={(e) => {
+                    setPrivacyAgreed(e.target.checked)
+                    setActiveForm('cta')
+                  }}
+                  className="h-4 w-4 text-blue-600 rounded border-gray-300"
+                  required
+                />
+                <label htmlFor="privacy-cta" className="text-gray-600">
+                  개인정보 수집 및 이용에 동의합니다.
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsModalOpen(true)
+                    setActiveForm('cta')
+                  }}
+                  className="text-gray-600 hover:text-gray-700 underline"
+                >
+                  [읽기]
+                </button>
+              </div>
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
@@ -186,6 +249,11 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <PrivacyPolicyModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   )
 }
