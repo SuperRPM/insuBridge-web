@@ -1,16 +1,40 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { API_ENDPOINTS } from '../config/api'
+import { fetchApi } from '../utils/api'
+
+interface UserResponse {
+  id: number;
+  created_at: string;
+  updated_at: string;
+  name: string;
+  phone: string;
+}
 
 const Home = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: API 연동
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetchApi<UserResponse>(API_ENDPOINTS.USERS, {
+        method: 'POST',
+        body: JSON.stringify(formData)
+      })
+
+      alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.')
+      setFormData({ name: '', phone: '' })
+    } catch (error) {
+      alert(error instanceof Error ? error.message : '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const formatPhoneNumber = (value: string) => {
@@ -71,8 +95,9 @@ const Home = () => {
               <button
                 type="submit"
                 className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                disabled={isSubmitting}
               >
-                무료신청 보험료 분석
+                {isSubmitting ? '처리중...' : '무료신청 보험료 분석'}
               </button>
             </form>
           </div>
@@ -153,8 +178,9 @@ const Home = () => {
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                disabled={isSubmitting}
               >
-                보험 점검 신청하기
+                {isSubmitting ? '처리중...' : '보험 점검 신청하기'}
               </button>
             </form>
           </div>
