@@ -20,9 +20,9 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-700 hover:text-blue-600">
               서비스소개
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600">
+            {/* <Link to="/contact" className="text-gray-700 hover:text-blue-600">
               문의하기
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
