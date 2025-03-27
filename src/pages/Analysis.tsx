@@ -12,63 +12,62 @@ const Analysis = () => {
     console.log('Form submitted:', formData)
   }
 
+  const formatPhoneNumber = (value: string) => {
+    // 숫자만 추출
+    const numbers = value.replace(/[^\d]/g, '')
+    
+    // 길이에 따라 포맷팅
+    if (numbers.length <= 3) {
+      return numbers
+    } else if (numbers.length <= 7) {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3)}`
+    } else {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`
+    }
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: name === 'phone' ? formatPhoneNumber(value) : value
     }))
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-3xl mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-8 text-blue-600">
+    <div className="min-h-screen bg-blue-600 py-20">
+      <div className="max-w-7xl mx-auto px-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-white">
           보험 분석 신청
         </h1>
         
-        <div className="bg-white rounded-lg shadow-md p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                이름
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-blue-50"
-                required
-                placeholder="이름을 입력해주세요"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                전화번호
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-blue-50"
-                required
-                placeholder="전화번호를 입력해주세요"
-              />
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 text-lg font-semibold"
-              >
-                분석 신청하기
-              </button>
-            </div>
+        <div className="max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+              placeholder="이름을 입력해주세요"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+              placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
+              required
+              maxLength={13}
+            />
+            <button
+              type="submit"
+              className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg"
+            >
+              분석 신청하기
+            </button>
           </form>
         </div>
       </div>
