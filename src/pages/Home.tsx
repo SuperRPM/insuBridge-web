@@ -35,9 +35,9 @@ const Home = () => {
               <div className="space-y-2">
                 <p className="text-gray-600">구독 서비스 월 비용:</p>
                 <ul className="list-disc list-inside text-gray-600">
-                  <li>넷***: 17,000원</li>
-                  <li>디**플**: 9,900원</li>
-                  <li>*튜브 프리미엄: 14,900원</li>
+                  <li>넷플릭스: 17,000원</li>
+                  <li>디즈니플러스: 9,900원</li>
+                  <li>유튜브 프리미엄: 14,900원</li>
                   <li>기타 구독 서비스: 20,000원</li>
                   <li>보험료: 557,000원</li>
                   <p className="text-2xl font-bold text-black mt-4">총 월 구독료: 618,800원</p>
@@ -49,9 +49,9 @@ const Home = () => {
               <div className="space-y-2">
                 <p className="text-blue-600">개선된 구독 서비스 월 비용:</p>
                 <ul className="list-disc list-inside text-blue-600">
-                  <li>넷***: 17,000원</li>
-                  <li>디**플**: 9,900원</li>
-                  <li>*튜브 프리미엄: 14,900원</li>
+                  <li>넷플릭스: 17,000원</li>
+                  <li>디즈니플러스: 9,900원</li>
+                  <li>유튜브 프리미엄: 14,900원</li>
                   <li>기타 구독 서비스: 20,000원</li>
                   <li>보험료: 321,000원</li>
                   <p className="text-2xl font-bold text-black mt-4">총 월 구독료: 382,800원</p>
