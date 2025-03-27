@@ -35,41 +35,39 @@ const Analysis = () => {
   }
 
   return (
-    <div className="min-h-screen bg-blue-600 py-20">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-white">
+    <div className="min-h-screen bg-gray-50 max-w-2xl mx-auto">
+      <div className="w-full px-4 py-8 md:py-12">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 text-blue-600">
           보험 분석 신청
         </h1>
         
-        <div className="max-w-md mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-              placeholder="이름을 입력해주세요"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-              placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
-              required
-              maxLength={13}
-            />
-            <button
-              type="submit"
-              className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg"
-            >
-              분석 신청하기
-            </button>
-          </form>
-        </div>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+            placeholder="이름을 입력해주세요"
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+            placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
+            required
+            maxLength={13}
+          />
+          <button
+            type="submit"
+            className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg"
+          >
+            분석 신청하기
+          </button>
+        </form>
       </div>
     </div>
   )

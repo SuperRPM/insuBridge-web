@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-16">
+    <nav className="bg-white shadow-lg w-full">
+      <div className="w-full">
+        <div className="flex justify-between h-16 px-4">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-blue-600">
               InsuBridge

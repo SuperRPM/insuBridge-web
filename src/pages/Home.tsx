@@ -36,15 +36,16 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            보험의 본질은 <br/>구독 서비스
+      <section className="bg-blue-600 text-white py-12 md:py-16 lg:py-20 w-full">
+        <div className="w-full px-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6">
+            보험의 본질은 구독서비스!
           </h1>
-          <p className="text-xl mb-8">
-            진짜 전문가에게 받는 보험 보장분석!
+          <p className="text-lg md:text-xl text-center mb-6 md:mb-8">
+            2만원짜리 구독 서비스도 꼼꼼히 비교하고 선택하시는데,<br />
+            보험은 그대로 두고 계신가요?
           </p>
           <div className="max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -79,15 +80,15 @@ const Home = () => {
       </section>
 
       {/* Analysis Process Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-blue-600">
-            2만원짜리 구독 서비스도 꼼꼼히 비교하고 선택하시는데,<br />
-            보험은 그대로 두고 계신가요?
+      <section className="py-12 md:py-16 bg-white w-full">
+        <div className="w-full px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-blue-600">
+            보험 전문가에게 보장대비 금액을 비교하고 선택하세요.
+            
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 w-full">
             <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-blue-600">일반적인 소비 패턴</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-4 text-blue-600">일반적인 소비 패턴</h3>
               <div className="space-y-2">
                 <p className="text-gray-600">구독 서비스 월 비용:</p>
                 <ul className="list-disc list-inside text-gray-600">
@@ -96,12 +97,12 @@ const Home = () => {
                   <li>유튜브 프리미엄: 14,900원</li>
                   <li>기타 구독 서비스: 20,000원</li>
                   <li>보험료: 557,000원</li>
-                  <p className="text-2xl font-bold text-black mt-4">총 월 구독료: 618,800원</p>
+                  <p className="text-xl md:text-2xl font-bold text-black mt-4">총 월 구독료: 618,800원</p>
                 </ul>
               </div>
             </div>
             <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-blue-600">insuBridge 재설계 후 패턴</h3>
+              <h3 className="text-lg md:text-xl font-semibold mb-4 text-blue-600">insuBridge 재설계 후 패턴</h3>
               <div className="space-y-2">
                 <p className="text-blue-600">개선된 구독 서비스 월 비용:</p>
                 <ul className="list-disc list-inside text-blue-600">
@@ -109,11 +110,12 @@ const Home = () => {
                   <li>디즈니플러스: 9,900원</li>
                   <li>유튜브 프리미엄: 14,900원</li>
                   <li>기타 구독 서비스: 20,000원</li>
-                  <li>보험료: 321,000원</li>
-                  <p className="text-2xl font-bold text-black mt-4">총 월 구독료: 382,800원</p>
+                  <li>보험료: 371,000원</li>
+                  <p className="text-xl md:text-2xl font-bold text-black mt-4">총 월 구독료: 432,800원</p>
                 </ul>
                 <p className="text-blue-600 font-bold mt-4">
-                  보험 분석 후 절감 금액으로 OTT 구독 서비스 비용을 충당할 수 있어요
+                  월 136,000원 절약! <br />
+                  연 1,632,000원 절약!
                 </p>
               </div>
             </div>
@@ -122,12 +124,12 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-blue-600">
+      <section className="bg-gray-50 py-12 md:py-16 w-full">
+        <div className="w-full px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-blue-600">
             가입된 보험에 대해 진짜 전문가와 1:1로 궁금한 점을 상담하세요
           </h2>
-          <div className="max-w-md mx-auto">
+          <div className="w-full">
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
