@@ -41,10 +41,10 @@ const Home = () => {
       <section className="bg-blue-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            진짜 전문가에게 받는 보험 보장분석!
+            보험의 본질은 <br/>구독 서비스
           </h1>
           <p className="text-xl mb-8">
-            전문가에게 직접 궁금한건 무엇이든 물어보세요
+            진짜 전문가에게 받는 보험 보장분석!
           </p>
           <div className="max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
