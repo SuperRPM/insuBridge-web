@@ -5,13 +5,21 @@ export async function fetchApi<T>(
   options: RequestInit = {}
 ): Promise<T> {
   try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    const finalOptions = {
       ...options,
       headers: {
-        'Content-Type': 'application/json',
         ...options.headers,
-      },
-    });
+      }
+    };
+
+    if (options.method === 'POST') {
+      finalOptions.headers = {
+        ...finalOptions.headers,
+        'Content-Type': 'application/json'
+      };
+    }
+
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, finalOptions);
 
     const data = await response.json();
 
