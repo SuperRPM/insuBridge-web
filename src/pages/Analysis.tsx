@@ -82,7 +82,7 @@ const Analysis = () => {
             value={formData.name}
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-lg text-gray-600 placeholder-gray-500 bg-blue-50"
-            placeholder="이름을 입력해주세요"
+            placeholder="이름입력 후 보험 점검 신청하입"
             required
           />
           <input
@@ -91,7 +91,7 @@ const Analysis = () => {
             value={formData.phone}
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-lg text-gray-600 placeholder-gray-500 bg-blue-50"
-            placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
+            placeholder="전화번호를 입력해주세요"
             required
             maxLength={13}
           />

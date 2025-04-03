@@ -90,7 +90,7 @@ const Home = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-                placeholder="이름을 입력해주세요"
+                placeholder="이름입력 후 무료 보험료 분석 받기"
                 required
               />
               <input
@@ -99,7 +99,7 @@ const Home = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-                placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
+                placeholder="전화번호를 입력해주세요"
                 required
                 maxLength={13}
               />
@@ -145,8 +145,8 @@ const Home = () => {
       <section className="py-12 md:py-16 bg-white w-full">
         <div className="w-full px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-blue-600">
-            보험 전문가에게 보장대비 금액을 비교하고 선택하세요.
-            
+            개인정보는 법률에 따라 안전하게 보호되며, 서비스 안내 외 다른 용도로 절대 사용되지 않습니다.<br />
+            광고나 스팸, 보험 가입권유 전화 없습니다
           </h2>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 w-full">
             <div className="bg-gray-50 p-6 rounded-lg">
@@ -199,7 +199,7 @@ const Home = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
-                placeholder="이름을 입력해주세요"
+                placeholder="이름 입력 후 보험 점검 신청하기"
                 required
               />
               <input
@@ -208,7 +208,7 @@ const Home = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
-                placeholder="전화번호를 입력해주세요 (예: 010-1234-5678)"
+                placeholder="전화번호를 입력해주세요"
                 required
                 maxLength={13}
               />
