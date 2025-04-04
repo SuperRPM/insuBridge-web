@@ -7,7 +7,6 @@ export async function fetchApi<T>(
   try {
     const finalOptions = {
       ...options,
-      mode: 'no-cors' as RequestMode,
       headers: {
         ...options.headers,
       }
