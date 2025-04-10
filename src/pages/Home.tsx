@@ -10,12 +10,16 @@ interface UserResponse {
   updated_at: string;
   name: string;
   phone: string;
+  hba1c: number;
+  fasting_blood_sugar: number;
 }
 
 const Home = () => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: ''
+    phone: '',
+    hba1c: '',
+    fasting_blood_sugar: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -39,7 +43,7 @@ const Home = () => {
       })
 
       alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.')
-      setFormData({ name: '', phone: '' })
+      setFormData({ name: '', phone: '', hba1c: '', fasting_blood_sugar: '' })
       setPrivacyAgreed(false)
     } catch (error) {
       alert(error instanceof Error ? error.message : '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
@@ -76,11 +80,11 @@ const Home = () => {
       <section className="bg-blue-600 text-white py-12 md:py-16 lg:py-20 w-full">
         <div className="w-full px-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6">
-            보험의 본질은 구독서비스!
+            당뇨/당뇨 전단계 보험 가입 상담
           </h1>
           <p className="text-lg md:text-xl text-center mb-6 md:mb-8">
-            2만원짜리 구독 서비스도 꼼꼼히 비교하고 선택하시는데,<br />
-            보험은 그대로 두고 계신가요?
+            당뇨병이 있어도 보험에 가입할 수 있습니다<br />
+            전문가와 함께 맞춤형 보험을 설계해보세요
           </p>
           <div className="max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -90,7 +94,7 @@ const Home = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-                placeholder="이름입력 후 무료 보험료 분석 받기"
+                placeholder="이름을 입력해주세요"
                 required
               />
               <input
@@ -103,6 +107,37 @@ const Home = () => {
                 required
                 maxLength={13}
               />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="number"
+                    name="hba1c"
+                    value={formData.hba1c}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+                    placeholder="당화혈색소(HbA1c)"
+                    step="0.1"
+                    min="0"
+                    max="20"
+                    required
+                  />
+                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과</p>
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="fasting_blood_sugar"
+                    value={formData.fasting_blood_sugar}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
+                    placeholder="공복혈당(mg/dL)"
+                    min="0"
+                    max="500"
+                    required
+                  />
+                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과</p>
+                </div>
+              </div>
               <div className="flex items-center space-x-2 text-sm">
                 <input
                   type="checkbox"
@@ -134,7 +169,7 @@ const Home = () => {
                 className="w-full bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? '처리중...' : '무료신청 보험료 분석'}
+                {isSubmitting ? '처리중...' : '무료 상담 신청하기'}
               </button>
             </form>
           </div>
@@ -315,7 +350,7 @@ const Home = () => {
       <section className="bg-gray-50 py-12 md:py-16 w-full">
         <div className="w-full px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-blue-600">
-            가입된 보험에 대해 진짜 전문가와 1:1로 궁금한 점을 상담하세요
+            당뇨/당뇨 전단계 보험 가입 상담
           </h2>
           <div className="w-full">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -325,7 +360,7 @@ const Home = () => {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
-                placeholder="이름 입력 후 보험 점검 신청하기"
+                placeholder="이름을 입력해주세요"
                 required
               />
               <input
@@ -338,6 +373,37 @@ const Home = () => {
                 required
                 maxLength={13}
               />
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="number"
+                    name="hba1c"
+                    value={formData.hba1c}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
+                    placeholder="당화혈색소(HbA1c)"
+                    step="0.1"
+                    min="0"
+                    max="20"
+                    required
+                  />
+                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과</p>
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    name="fasting_blood_sugar"
+                    value={formData.fasting_blood_sugar}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
+                    placeholder="공복혈당(mg/dL)"
+                    min="0"
+                    max="500"
+                    required
+                  />
+                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과</p>
+                </div>
+              </div>
               <div className="flex items-center space-x-2 text-sm">
                 <input
                   type="checkbox"
@@ -369,7 +435,7 @@ const Home = () => {
                 className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? '처리중...' : '보험 점검 신청하기'}
+                {isSubmitting ? '처리중...' : '무료 상담 신청하기'}
               </button>
             </form>
           </div>
