@@ -113,14 +113,13 @@ const Home = () => {
                     name="hba1c"
                     value={formData.hba1c}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-                    placeholder="당화혈색소(HbA1c)"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
+                    placeholder="당화혈색소(HbA1c) - 선택사항"
                     step="0.1"
                     min="0"
                     max="20"
-                    required
                   />
-                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과</p>
+                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과 (선택사항)</p>
                 </div>
                 <div>
                   <input
@@ -128,13 +127,12 @@ const Home = () => {
                     name="fasting_blood_sugar"
                     value={formData.fasting_blood_sugar}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-blue-50"
-                    placeholder="공복혈당(mg/dL)"
+                    className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
+                    placeholder="공복혈당(mg/dL) - 선택사항"
                     min="0"
                     max="500"
-                    required
                   />
-                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과</p>
+                  <p className="text-xs text-white mt-1">※ 최근 3개월 내 검사 결과 (선택사항)</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2 text-sm">
@@ -402,13 +400,12 @@ const Home = () => {
                     value={formData.hba1c}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
-                    placeholder="당화혈색소(HbA1c)"
+                    placeholder="당화혈색소(HbA1c) - 선택사항"
                     step="0.1"
                     min="0"
                     max="20"
-                    required
                   />
-                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과</p>
+                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과 (선택사항)</p>
                 </div>
                 <div>
                   <input
@@ -417,12 +414,11 @@ const Home = () => {
                     value={formData.fasting_blood_sugar}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 focus:border-blue-500 focus:ring-blue-500 placeholder-gray-500 text-gray-900"
-                    placeholder="공복혈당(mg/dL)"
+                    placeholder="공복혈당(mg/dL) - 선택사항"
                     min="0"
                     max="500"
-                    required
                   />
-                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과</p>
+                  <p className="text-xs text-gray-500 mt-1">※ 최근 3개월 내 검사 결과 (선택사항)</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2 text-sm">
