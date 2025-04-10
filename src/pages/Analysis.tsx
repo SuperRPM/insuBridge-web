@@ -1,135 +1,95 @@
 import { useState } from 'react'
-import { API_ENDPOINTS } from '../config/api'
-import { fetchApi } from '../utils/api'
-import PrivacyPolicyModal from '../components/PrivacyPolicyModal'
-
-interface UserResponse {
-  id: number;
-  created_at: string;
-  updated_at: string;
-  name: string;
-  phone: string;
-}
+import { Link } from 'react-router-dom'
 
 const Analysis = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [privacyAgreed, setPrivacyAgreed] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!privacyAgreed) {
-      alert('개인정보 수집 및 이용에 동의해주세요.')
-      return
-    }
-    
-    setIsSubmitting(true)
-
-    try {
-      const response = await fetchApi<UserResponse>(API_ENDPOINTS.USERS, {
-        method: 'POST',
-        body: JSON.stringify(formData)
-      })
-
-      alert('상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.')
-      setFormData({ name: '', phone: '' })
-      setPrivacyAgreed(false)
-    } catch (error) {
-      alert(error instanceof Error ? error.message : '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const formatPhoneNumber = (value: string) => {
-    // 숫자만 추출
-    const numbers = value.replace(/[^\d]/g, '')
-    
-    // 길이에 따라 포맷팅
-    if (numbers.length <= 3) {
-      return numbers
-    } else if (numbers.length <= 7) {
-      return `${numbers.slice(0, 3)}-${numbers.slice(3)}`
-    } else {
-      return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7, 11)}`
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: name === 'phone' ? formatPhoneNumber(value) : value
-    }))
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50 max-w-2xl mx-auto">
-      <div className="w-full px-4 py-8 md:py-12">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 text-gray-600">
-          보험 분석 신청
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+          당뇨/당뇨 전단계 정보
         </h1>
-        
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg text-gray-600 placeholder-gray-500 bg-blue-50"
-            placeholder="이름입력 후 보험 점검 신청하입"
-            required
-          />
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg text-gray-600 placeholder-gray-500 bg-blue-50"
-            placeholder="전화번호를 입력해주세요"
-            required
-            maxLength={13}
-          />
-          
-          <div className="flex items-center space-x-2 text-sm">
-            <input
-              type="checkbox"
-              id="privacy"
-              checked={privacyAgreed}
-              onChange={(e) => setPrivacyAgreed(e.target.checked)}
-              className="h-4 w-4 text-blue-600 rounded border-gray-300"
-              required
-            />
-            <label htmlFor="privacy" className="text-gray-600">
-              개인정보 수집 및 이용에 동의합니다.
-            </label>
-            <button
-              type="button"
-              onClick={() => setIsModalOpen(true)}
-              className="text-gray-600 hover:text-gray-700 underline"
-            >
-              [읽기]
-            </button>
+
+        {/* 당뇨병 기본 정보 */}
+        <section className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-600">당뇨병이란?</h2>
+          <p className="text-gray-700 mb-4">
+            당뇨병은 혈액 속의 포도당(혈당)이 정상보다 높은 상태가 지속되는 만성질환입니다.
+            인슐린의 분비가 부족하거나 인슐린의 기능이 저하되어 발생합니다.
+          </p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-blue-700 mb-2">1형 당뇨병</h3>
+              <p className="text-gray-600">
+                인슐린을 생산하는 췌장의 베타세포가 파괴되어 발생하는 자가면역질환
+              </p>
+            </div>
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-blue-700 mb-2">2형 당뇨병</h3>
+              <p className="text-gray-600">
+                인슐린 저항성과 인슐린 분비 장애가 복합적으로 작용하여 발생
+              </p>
+            </div>
           </div>
+        </section>
 
-          <button
-            type="submit"
-            className="w-full bg-white text-gray-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg"
-            disabled={isSubmitting}
+        {/* 당뇨 전단계 정보 */}
+        <section className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-600">당뇨 전단계란?</h2>
+          <p className="text-gray-700 mb-4">
+            당뇨 전단계는 정상과 당뇨병 사이의 상태로, 혈당이 정상보다 높지만 당뇨병 진단 기준에는
+            미치지 않는 상태를 말합니다. 이 단계에서 적절한 관리가 이루어지면 당뇨병 발병을 예방하거나
+            지연시킬 수 있습니다.
+          </p>
+          <div className="bg-yellow-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-yellow-700 mb-2">당뇨 전단계 진단 기준</h3>
+            <ul className="list-disc list-inside text-gray-600 space-y-2">
+              <li>공복혈당: 100-125 mg/dL</li>
+              <li>당화혈색소(HbA1c): 5.7-6.4%</li>
+              <li>경구당부하검사: 140-199 mg/dL</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* 관리 방법 */}
+        <section className="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-600">당뇨/당뇨 전단계 관리 방법</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="bg-green-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-green-700 mb-2">식이요법</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>균형잡힌 식사</li>
+                <li>저탄수화물 식단</li>
+                <li>정기적인 식사 시간</li>
+              </ul>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-green-700 mb-2">운동</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>유산소 운동</li>
+                <li>근력 운동</li>
+                <li>일상 활동 증가</li>
+              </ul>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg">
+              <h3 className="font-semibold text-green-700 mb-2">정기 검사</h3>
+              <ul className="list-disc list-inside text-gray-600 space-y-2">
+                <li>혈당 측정</li>
+                <li>당화혈색소 검사</li>
+                <li>합병증 검사</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA 섹션 */}
+        <div className="text-center mt-8">
+          <Link
+            to="/"
+            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            {isSubmitting ? '처리중...' : '분석 신청하기'}
-          </button>
-        </form>
-
-        <PrivacyPolicyModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        />
+            상담 신청하기
+          </Link>
+        </div>
       </div>
     </div>
   )

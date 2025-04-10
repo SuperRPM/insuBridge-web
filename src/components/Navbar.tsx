@@ -15,7 +15,7 @@ const Navbar = () => {
               홈
             </Link>
             <Link to="/analysis" className="text-gray-700 hover:text-blue-600">
-              보험분석
+              당뇨/전단계 분석
             </Link>
             <Link to="/about" className="text-gray-700 hover:text-blue-600">
               서비스소개
