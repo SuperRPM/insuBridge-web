@@ -368,7 +368,7 @@ const Home = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="bg-gray-50 py-12 md:py-16 w-full">
+      <section id="consultation" className="bg-gray-50 py-12 md:py-16 w-full">
         <div className="w-full px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-blue-600">
             당뇨/당뇨 전단계 보험 가입 상담
