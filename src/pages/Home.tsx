@@ -83,8 +83,8 @@ const Home = () => {
             당뇨/당뇨 전단계 보험 가입 상담
           </h1>
           <p className="text-lg md:text-xl text-center mb-6 md:mb-8">
-            당뇨병이 있어도 보험에 가입할 수 있습니다<br />
-            전문가와 함께 맞춤형 보험을 설계해보세요
+            당뇨병 진단시 뇌, 심혈관 보험 가입에 제약이 생길 수 있습니다<br />
+            미리 전문가와 상담하여 보험 가입 전략을 세워보세요.
           </p>
           <div className="max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -163,6 +163,10 @@ const Home = () => {
                 >
                   [읽기]
                 </button>
+              </div>
+              <div className="text-center text-sm text-gray-600 mb-4">
+                <p className="mt-1">당뇨/당뇨 전단계 보험 가입은 시기적절한 상담이 매우 중요합니다.</p>
+                <p className="font-semibold">※ 24시간 내 상담이 어려운 분들은 신청을 보류해주세요</p>
               </div>
               <button
                 type="submit"
@@ -429,6 +433,10 @@ const Home = () => {
                 >
                   [읽기]
                 </button>
+              </div>
+              <div className="text-center text-sm text-gray-600 mb-4">
+                <p className="font-semibold">※ 24시간 내 상담이 어려운 분들은 신청을 보류해주세요</p>
+                <p className="mt-1">당뇨/당뇨 전단계 보험 가입은 시기적절한 상담이 매우 중요합니다</p>
               </div>
               <button
                 type="submit"
