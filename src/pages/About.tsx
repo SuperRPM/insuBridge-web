@@ -3,7 +3,7 @@ const About = () => {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="w-full px-4">
         <h1 className="text-3xl font-bold text-center mb-12 text-blue-600">
-          InsuBridge 서비스 소개
+          혈당케어브릿지 서비스 소개
         </h1>
 
         <div className="space-y-12">
@@ -11,7 +11,7 @@ const About = () => {
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-bold mb-6 text-blue-800">서비스 소개</h2>
             <p className="text-gray-600 leading-relaxed">
-              InsuBridge는 보험 전문가와 고객을 연결하여 최적의 보험 보장을 찾아드리는 서비스입니다.
+              혈당케어브릿지는 보험 전문가와 고객을 연결하여 최적의 보험 보장을 찾아드리는 서비스입니다.
               현재 가입하신 보험의 보장 내용을 분석하고, 더 나은 보장과 더 낮은 보험료를 제안해드립니다.
             </p>
           </section>

@@ -80,11 +80,10 @@ const Home = () => {
       <section className="bg-blue-600 text-white py-12 md:py-16 lg:py-20 w-full">
         <div className="w-full px-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6">
-            당뇨/당뇨 전단계 보험 가입 상담
+            당뇨 진단 전, 미리 알았더라면 준비했을 보험.
           </h1>
           <p className="text-lg md:text-xl text-center mb-6 md:mb-8">
-            당뇨병 진단시 뇌, 심혈관 보험 가입에 제약이 생길 수 있습니다<br />
-            미리 전문가와 상담하여 보험 가입 전략을 세워보세요.
+            저와 같은 2030을 위해 만든 맞춤 보험 매칭 서비스입니다.
           </p>
           <div className="max-w-md mx-auto">
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -165,8 +164,8 @@ const Home = () => {
                 </button>
               </div>
               <div className="text-center text-sm text-gray-600 mb-4">
-                <p className="mt-1">당뇨/당뇨 전단계 보험 가입은 시기적절한 상담이 매우 중요합니다.</p>
-                <p className="font-semibold">※ 24시간 내 상담이 어려운 분들은 신청을 보류해주세요</p>
+                <p className="mt-1 text-white">당뇨/당뇨 전단계 보험 가입은 시기적절한 상담이 매우 중요합니다.</p>
+                <p className="font-semibold text-white">※ 24시간 내 상담이 어려운 분들은 신청을 보류해주세요</p>
               </div>
               <button
                 type="submit"
@@ -180,113 +179,131 @@ const Home = () => {
         </div>
       </section>
 
-      {/* How Others Get Insurance Section */}
-      <section className="bg-gray-50 py-12 md:py-16 w-full">
-        <div className="w-full px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-blue-600">
-            다른 사람들은 어떻게 보험을 가입하고 있을까?<br />
-            인슈브릿지는 이런 방식으로 보험을 가입합니다.
-            
+      {/* My Story Section */}
+      <section className="py-12 md:py-16 bg-white w-full">
+        <div className="w-full px-4 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-blue-600">
+            제 이야기를 들려드리고 싶습니다
           </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Traditional Methods */}
-            <div className="bg-white p-6 rounded-lg shadow-md border border-red-200">
-              <h3 className="text-xl font-semibold mb-4 text-red-600">기존 방식의 한계</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  지인 소개로 가입
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  스팸 전화나 불필요한 권유로 인한 스트레스
-                </li>
-                <li className="flex items-start">
-                  <span className="text-red-500 mr-2">✗</span>
-                  보험사 직원의 일방적인 상품 설명
-                </li>
-              </ul>
-            </div>
+          <div className="bg-gray-50 p-6 md:p-8 rounded-lg shadow-md">
+            <div className="space-y-6 text-gray-700">
+              <p>
+                저는 30대 개발자입니다. 야근과 불규칙한 생활로 
+                <span className="text-red-600 font-semibold">당화혈색소 6.6, LDL 190</span>이라는 
+                진단을 받았습니다.
+              </p>
+              
+              <p>
+                심근경색과 뇌졸중 위험에 놀라 식단과 운동을 시작했고, 
+                지금은 <span className="text-green-600 font-semibold">당화혈색소 5.8, LDL 100</span>으로 
+                안정적인 상태를 유지하고 있습니다.
+              </p>
 
-            {/* Whats Customer Needs */}
-            <div className="bg-white p-6 rounded-lg shadow-md border border-green-200 md:col-span-2 lg:col-span-1">
-              <h3 className="text-xl font-semibold mb-4 text-green-600">고객이 원하는 것</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  내가 원하는 보험에 대한 설명
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  같은 보장에 대한 유사 상품 비교
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  경험많은 전문가와 상담
-                </li>
-              </ul>
-            </div>
+              <p>
+                그런데 보험을 알아보는 과정에서, 
+                <span className="text-red-600 font-semibold">"당뇨 진단을 받으면 가입이 어려운 보험이 있다"</span>는 
+                사실을 처음 알게 됐습니다.
+              </p>
 
-            <div className="bg-white p-6 rounded-lg shadow-md border border-blue-200 md:col-span-2 lg:col-span-1">
-              <h3 className="text-xl font-semibold mb-4 text-blue-600">인슈브릿지의 해결책</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">✓</span>
-                  상품가입 권유 없는 보험 상담
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">✓</span>
-                  고객이 원할 때 상담 진행
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-500 mr-2">✓</span>
-                  맞춤형 보험 설계 및 추천
-                </li>
-              </ul>
+              <p>
+                만약 조금만 더 일찍 알았다면, 미리 준비할 수 있었을 텐데… 라는 후회가 남았습니다.
+              </p>
+
+              <p>
+                그래서 저와 같은 20~30대를 위해, 당뇨 진행상황에 맞는 보험을 설계해줄 
+                전문가를 연결해주는 서비스를 만들었습니다.
+              </p>
+
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <p className="font-semibold">
+                  저는 보험을 팔지 않습니다.
+                </p>
+                <p className="mt-2">
+                  상담을 원하실 때만 당뇨 보험 전문가를 매칭해드립니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Analysis Process Section */}
-      <section className="py-12 md:py-16 bg-white w-full">
+      {/* How Others Get Insurance Section */}
+      <section className="bg-gray-50 py-12 md:py-16 w-full">
         <div className="w-full px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-blue-600">
-            고객의 요청 전까지 보험 가입권유를 하지 않습니다.
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-blue-600">
+            당뇨병은 더 이상 노인성 질환이 아닙니다
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 w-full">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg md:text-xl font-semibold mb-4 text-blue-600">일반적인 소비 패턴</h3>
-              <div className="space-y-2">
-                <p className="text-gray-600">구독 서비스 월 비용:</p>
-                <ul className="list-disc list-inside text-gray-600">
-                  <li>넷플릭스: 17,000원</li>
-                  <li>디즈니플러스: 9,900원</li>
-                  <li>유튜브 프리미엄: 14,900원</li>
-                  <li>기타 구독 서비스: 20,000원</li>
-                  <li>보험료: 557,000원</li>
-                  <p className="text-xl md:text-2xl font-bold text-black mt-4">총 월 구독료: 618,800원</p>
-                </ul>
-              </div>
+          <div className="text-center text-lg text-gray-700 mb-8">
+            <p className="mb-4">
+              30대 당뇨 전단계 37%<br />
+              <span className="text-red-600 font-semibold">30대 당뇨 22만명 중 60%가 자신의 상태를 모르고 있습니다</span>
+            </p>
+            <p className="mb-4">
+              2018년에서 2022년 사이<br />
+              <span className="text-red-600 font-semibold">20대 당뇨 환자가 47% 증가</span>
+            </p>
+            <p className="text-lg">
+              당뇨병은 관리가 가능한 질병이지만,<br />
+              <span className="text-red-600 font-semibold">당뇨인지 모르고 관리의 골든타임을 놓치고 있습니다</span>
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* 당뇨병 진단 후의 두려움 */}
+            <div className="bg-white p-6 rounded-lg shadow-md border border-blue-200">
+              <h3 className="text-xl font-semibold mb-4 text-blue-600">당뇨병 진단 후의 두려움</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">✓</span>
+                  당뇨병은 관리가 가능한 만성질환입니다
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">✓</span>
+                  운동과 식이요법으로 충분히 관리 가능합니다
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">✓</span>
+                  정기적인 검사와 관리로 합병증 예방이 가능합니다
+                </li>
+              </ul>
             </div>
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-lg md:text-xl font-semibold mb-4 text-blue-600">insuBridge 재설계 후 패턴</h3>
-              <div className="space-y-2">
-                <p className="text-blue-600">개선된 구독 서비스 월 비용:</p>
-                <ul className="list-disc list-inside text-blue-600">
-                  <li>넷플릭스: 17,000원</li>
-                  <li>디즈니플러스: 9,900원</li>
-                  <li>유튜브 프리미엄: 14,900원</li>
-                  <li>기타 구독 서비스: 20,000원</li>
-                  <li>보험료: 371,000원</li>
-                  <p className="text-xl md:text-2xl font-bold text-black mt-4">총 월 구독료: 432,800원</p>
-                </ul>
-                <p className="text-blue-600 font-bold mt-4">
-                  월 136,000원 절약! <br />
-                  연 1,632,000원 절약!
-                </p>
-              </div>
+
+            {/* 당뇨병 합병증 정보 */}
+            <div className="bg-white p-6 rounded-lg shadow-md border border-red-200">
+              <h3 className="text-xl font-semibold mb-4 text-red-600">당뇨병 합병증</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">!</span>
+                  당뇨병성 망막증 (실명 위험)
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">!</span>
+                  신장 합병증 (투석 위험)
+                </li>
+                <li className="flex items-start">
+                  <span className="text-red-500 mr-2">!</span>
+                  신경병증 (발 궤양 위험)
+                </li>
+              </ul>
+            </div>
+
+            {/* 보험 가입의 중요성 */}
+            <div className="bg-white p-6 rounded-lg shadow-md border border-green-200">
+              <h3 className="text-xl font-semibold mb-4 text-green-600">보험 가입의 중요성</h3>
+              <ul className="space-y-3 text-gray-600">
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  당뇨 진단시 뇌, 심혈관 보험 가입 제한
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  조기 가입으로 보험료 절약 가능
+                </li>
+                <li className="flex items-start">
+                  <span className="text-green-500 mr-2">✓</span>
+                  합병증 발생 전 보장 확보
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -295,7 +312,7 @@ const Home = () => {
       {/* Process Steps */}
       <div className="mt-12 max-w-4xl mx-auto">
         <h3 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-800">
-          인슈브릿지의 전문 상담 프로세스
+          혈당케어브릿지의 전문 상담 프로세스
         </h3>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -306,7 +323,7 @@ const Home = () => {
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">2</div>
             <h4 className="font-semibold mb-2 text-blue-600">담당자 배정</h4>
-            <p className="text-gray-600">보험 관련 상담을 진행하고 적합한 전문가를 찾습니다</p>
+            <p className="text-gray-600">24시간안에 상담을 진행하고 적합한 전문가를 찾습니다</p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md text-center">
             <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">3</div>

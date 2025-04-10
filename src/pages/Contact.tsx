@@ -45,7 +45,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-gray-700">이메일</h3>
-                <p className="text-gray-600">contact@insubridge.com</p>
+                <p className="text-gray-600">contact@bloodsugar-care-bridge.com</p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-700">운영시간</h3>
